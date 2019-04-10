@@ -1,5 +1,5 @@
 function gui02 
-msgbox('Выберите изображение');
+msgbox('selected image');
 [FileName, PathName] = uigetfile;
 if FileName~=0
     % Формирование полного пути к файлу
@@ -8,15 +8,15 @@ if FileName~=0
     Pict = imread(FullName);    
 end
 figure('MenuBar','none','Name','Conversion','NumberTitle','off','Position',[200,200,100,140]); 
-uicontrol('Style','ToggleButton','String','Конвертировать','Position',[10,90,100,20],... 
+uicontrol('Style','ToggleButton','String','Convert','Position',[20,90,70,20],... 
 'CallBack',@ToggleButtonPressed); 
-uicontrol('Style','PushButton','String','Close','Position',[10,20,100,20],... 
+uicontrol('Style','PushButton','String','Close','Position',[20,20,70,20],... 
 'CallBack','close'); 
 
 function ToggleButtonPressed(h, eventdata) 
 
 B=['c:\' randi(1000) '.pnm'];            
             imwrite(Pict,B);
- msgbox('Сохранено по адресу c:\(Диск С)');
+ msgbox('saved on the disk C(c:\)');
 end
 end
